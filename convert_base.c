@@ -36,11 +36,20 @@ int main(int argc, char** argv) {
             number = strtol(argv[1], NULL, 10);
             // printf("%ld\n", number);
             break;
+        case 'b':
+            number = strtol(argv[1], NULL, 2);
+            break;
     }
 
     switch (argv[0][2]) {
         case 'b':
             printBinary(number);
+            break;
+        case 'd':
+            printf("%ld\n", number);
+            break;
+        case 'x':
+            printf("%lx\n", number);
             break;
     }
 
