@@ -4,7 +4,8 @@
 
 void usage() {
     printf("Usage: <command> <num>\n");
-    printf("Example: 'xtb ff1f' to convert binary to hexadecimal\n");
+    printf("'xtb ff1f' to convert hex to bin\n");
+    printf("'dtb 123' to convert decimal to bin\n");
     exit(1);
 }
 
@@ -24,6 +25,23 @@ int main(int argc, char** argv) {
     if(argc != 2)
         usage();
 
-    long number = strtol(argv[1], NULL, 16);
-    printBinary(number);
+    long number;
+
+    switch (argv[0][0]) {
+        case 'x':
+            number = strtol(argv[1], NULL, 16);
+            // printf("%ld\n", number);
+            break;
+        case 'd':
+            number = strtol(argv[1], NULL, 10);
+            // printf("%ld\n", number);
+            break;
+    }
+
+    switch (argv[0][2]) {
+        case 'b':
+            printBinary(number);
+            break;
+    }
+
 }
